@@ -1,0 +1,9 @@
+*.psd
+qa-*.png
+shot-*.png
+chrome-qa-profile*/
+review-build/
+review-final/
+.DS_Store
+Thumbs.db
+

@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SJ DESIGN PORTFOLIO</title>
+  <script>
+    if (sessionStorage.getItem('sjFromIntro') === '1') {
+      document.documentElement.classList.add('from-intro');
+    }
+  </script>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="site-header" data-header>
+    <nav class="nav-shell" aria-label="Main navigation">
+      <button class="mobile-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" data-mobile-menu>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-left">
+        <a href="#/about" class="nav-link">关于</a>
+        <a href="#/projects/all/1" class="nav-link">案例</a>
+      </div>
+      <a href="#/home" class="brand" aria-label="SJ DESIGN PORTFOLIO home">
+        <img src="assets/header-brand.png" alt="SJ DESIGN PORTFOLIO SINCE 2011">
+      </a>
+      <div class="nav-right">
+        <a href="#/contact" class="nav-link">联络</a>
+        <button class="search-btn" type="button" aria-label="Search" data-search-open>⌕</button>
+      </div>
+    </nav>
+    <div class="mobile-nav-panel" data-mobile-panel>
+      <a href="#/about">关于</a>
+      <a href="#/projects/all/1">案例</a>
+      <a href="#/contact">联络</a>
+    </div>
+  </header>
+
+  <main id="app" class="page-root"></main>
+
+  <div class="search-overlay" data-search-overlay aria-hidden="true">
+    <div class="search-panel" role="dialog" aria-modal="true" aria-label="Search projects">
+      <button class="search-close" type="button" aria-label="Close search" data-search-close>×</button>
+      <label class="search-label" for="site-search-input">Search 搜索</label>
+      <input id="site-search-input" class="search-input" type="search" placeholder="输入项目名称" autocomplete="off" data-search-input>
+      <div class="search-results" data-search-results></div>
+    </div>
+  </div>
+
+  <template id="footer-template">
+    <footer class="site-footer">
+      <div class="footer-nav">
+        <a href="#/about">关于</a>
+        <a href="#/projects/all/1">案例</a>
+        <a href="#/contact">联络</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 SJ-DESIGN.ME</span>
+        <button type="button" data-back-top>BACK TO TOP</button>
+      </div>
+    </footer>
+  </template>
+
+  <script src="site.js"></script>
+</body>
+</html>

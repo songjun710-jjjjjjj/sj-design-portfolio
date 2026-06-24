@@ -9,6 +9,8 @@
       document.documentElement.classList.add('from-intro');
     }
   </script>
+  <link rel="preload" href="assets/header-brand.png" as="image" fetchpriority="high">
+  <link rel="preload" href="首页banner/首页1-high fidelity v2-1920w.png" as="image" fetchpriority="high">
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
@@ -24,7 +26,7 @@
         <a href="#/projects/all/1" class="nav-link">案例</a>
       </div>
       <a href="#/home" class="brand" aria-label="SJ DESIGN PORTFOLIO home">
-        <img src="assets/header-brand.png" alt="SJ DESIGN PORTFOLIO SINCE 2011">
+        <img src="assets/header-brand.png" alt="SJ DESIGN PORTFOLIO SINCE 2011" fetchpriority="high" decoding="async">
       </a>
       <div class="nav-right">
         <a href="#/contact" class="nav-link">联络</a>

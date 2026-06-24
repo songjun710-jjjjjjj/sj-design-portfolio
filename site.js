@@ -65,7 +65,7 @@ function renderHome() {
     <section class="hero-carousel" aria-label="Selected works">
       ${HOME_BANNERS.map((banner, index) => `
         <figure class="hero-slide ${index === state.slide ? 'is-active' : ''}" data-slide="${index}">
-          <img src="${banner.src}" alt="${banner.title}">
+          <img ${index === state.slide ? `src="${banner.src}" fetchpriority="high" loading="eager"` : `data-src="${banner.src}" loading="lazy"`} alt="${banner.title}" decoding="async">
         </figure>`).join('')}
     </section>
     <div class="hero-caption reveal">
@@ -88,7 +88,7 @@ function aboutSection(extra = '', showCapabilities = true) {
     <section class="narrow ${extra} reveal" id="about">
       <h1 class="section-title">宋 俊 <span>一个善于独立解决问题的人</span></h1>
       <ul class="about-list">${aboutItems.map(item => `<li>${item}</li>`).join('')}</ul>
-      <img class="portrait-image" src="link/人像.png" alt="宋俊 portrait">
+      <img class="portrait-image" src="link/人像.png" alt="宋俊 portrait" loading="lazy" decoding="async">
       ${showCapabilities ? `<div class="capability-grid">
         ${capabilities.map(([en, no, title, desc]) => `
           <article class="capability">
@@ -153,7 +153,7 @@ function projectCard(project) {
   const thumb = PROJECT_THUMBS[project.slug] || project.cover;
   return `
     <a class="project-card reveal" href="${projectHref(project)}">
-      <div class="project-thumb"><img src="${thumb}" alt="${project.title}"></div>
+      <div class="project-thumb"><img src="${thumb}" alt="${project.title}" loading="lazy" decoding="async"></div>
       <strong class="project-title">${project.title}</strong>
     </a>`;
 }
@@ -174,12 +174,12 @@ function renderProjectDetail(slug) {
         </div>
       </div>
       <section class="detail-hero reveal">
-        <img class="detail-cover" src="${project.cover}" alt="${project.title}">
+        <img class="detail-cover" src="${project.cover}" alt="${project.title}" fetchpriority="high" loading="eager" decoding="async">
       </section>
       <div class="detail-body">
         <aside class="detail-title"><h1>${project.title}</h1></aside>
         <section class="detail-images">
-          ${project.images.map((src, index) => `<img class="reveal" src="${src}" alt="${project.title} detail ${index + 1}">`).join('')}
+          ${project.images.map((src, index) => `<img class="reveal" src="${src}" alt="${project.title} detail ${index + 1}" loading="lazy" decoding="async">`).join('')}
         </section>
       </div>
       <nav class="detail-nav reveal" aria-label="Project navigation">
@@ -222,10 +222,18 @@ function bindStaticPageGuard() {
 
 function bindCarousel() {
   clearInterval(state.timer);
+  const ensureSlideImage = index => {
+    const img = document.querySelector(`.hero-slide[data-slide="${index}"] img`);
+    if (img?.dataset.src && !img.src) {
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+    }
+  };
   const update = next => {
     const slides = [...document.querySelectorAll('.hero-slide')];
     if (!slides.length) return;
     state.slide = (next + slides.length) % slides.length;
+    ensureSlideImage(state.slide);
     slides.forEach((slide, index) => slide.classList.toggle('is-active', index === state.slide));
     const caption = document.querySelector('[data-caption-title]');
     if (caption) {
@@ -246,6 +254,11 @@ function bindCarousel() {
   };
   bindArrow('[data-slide-prev]', -1);
   bindArrow('[data-slide-next]', 1);
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => ensureSlideImage((state.slide + 1) % HOME_BANNERS.length), { timeout: 2500 });
+  } else {
+    window.setTimeout(() => ensureSlideImage((state.slide + 1) % HOME_BANNERS.length), 1800);
+  }
   state.timer = setInterval(() => update(state.slide + 1), 11000);
 }
 

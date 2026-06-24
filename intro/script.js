@@ -1,8 +1,28 @@
-﻿const intro = document.querySelector('.intro');
+const intro = document.querySelector('.intro');
 const buttonFlowGlow = document.querySelector('.button-flow-glow');
+let portfolioWarmed = false;
+
+function warmPortfolio() {
+  if (portfolioWarmed) return;
+  portfolioWarmed = true;
+  [
+    ['prefetch', '../portfolio.html', 'document'],
+    ['prefetch', '../site.css', 'style'],
+    ['prefetch', '../site.js', 'script'],
+    ['preload', '../首页banner/首页1-high fidelity v2-1920w.png', 'image'],
+    ['preload', '../assets/header-brand.png', 'image']
+  ].forEach(([rel, href, as]) => {
+    const link = document.createElement('link');
+    link.rel = rel;
+    link.href = href;
+    link.as = as;
+    document.head.appendChild(link);
+  });
+}
 
 function leave() {
   if (intro.classList.contains('is-leaving')) return;
+  warmPortfolio();
   intro.classList.add('is-leaving');
   sessionStorage.setItem('sjFromIntro', '1');
   window.setTimeout(() => {
@@ -54,3 +74,8 @@ intro.addEventListener('pointerleave', () => {
   if (buttonFlowGlow) buttonFlowGlow.style.setProperty('--glow-opacity', '0');
 });
 
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(warmPortfolio, { timeout: 1600 });
+} else {
+  window.setTimeout(warmPortfolio, 1200);
+}

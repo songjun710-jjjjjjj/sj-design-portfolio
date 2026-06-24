@@ -80,6 +80,7 @@ function renderHome() {
     ${footer()}`;
   bindCarousel();
   bindFooter();
+  bindHomeClickGuard();
   revealOnScroll();
 }
 
@@ -217,6 +218,16 @@ function bindStaticPageGuard() {
     if (!['about', 'contact'].includes(document.body.dataset.page)) return;
     event.preventDefault();
     event.stopPropagation();
+  };
+}
+
+function bindHomeClickGuard() {
+  app.onclick = event => {
+    if (document.body.dataset.page !== 'home') return;
+    if (event.target.closest('.carousel-controls,[data-back-top],.footer-nav a')) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (typeof event.stopImmediatePropagation === 'function') event.stopImmediatePropagation();
   };
 }
 

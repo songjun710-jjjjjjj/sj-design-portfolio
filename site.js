@@ -8,21 +8,21 @@ const HOME_BANNERS = [
   { src: 'assets/home-banner-5.png', title: '楚鲜汇·端午 2026' }
 ];
 const PROJECT_THUMBS = {
-  '楚韵传媒': '楚韵营销/03.png',
-  'CHUYUN-MEDIA': '项目详情/CHUYUN MEDIA/大图1.png',
-  '益膳': '益膳/2.png',
-  '联投·增益楚菜产业园': '项目详情/联投·增益楚菜产业园/大图1.png',
-  'LINKPLUS': '项目详情/LINKPLUS/大图1.png',
-  '增益冷链': '项目详情/增益冷链/大图1.png',
-  '活力28': '项目详情/活力28/大图1.png',
-  '森机农业': '项目详情/森机农业/大图1.jpg',
-  '楚鲜汇·端午': '项目详情/楚鲜汇·端午/大图1.png',
-  '楚鲜汇UI': '项目详情/楚鲜汇UI/大图1.png',
-  '长江大学校招': '项目详情/长江大学校招/大图1.png',
-  '天润农业': '项目详情/天润农业/详情1.jpg',
-  '活力28·官网': '项目详情/活力28·官网/大图1.png',
-  '楚鲜汇': '项目详情/楚鲜汇/大图1.png',
-  '高新区食品产业园': '三期/三期PPT-打印-14.png'
+  '楚韵传媒': 'assets/project-thumbs/thumb-01-chuyun-media-cn.jpg',
+  'CHUYUN-MEDIA': 'assets/project-thumbs/thumb-02-chuyun-media.jpg',
+  '益膳': 'assets/project-thumbs/thumb-03-yishan.jpg',
+  '联投·增益楚菜产业园': 'assets/project-thumbs/thumb-04-zycc.jpg',
+  'LINKPLUS': 'assets/project-thumbs/thumb-05-linkplus.jpg',
+  '增益冷链': 'assets/project-thumbs/thumb-06-cold-chain.jpg',
+  '活力28': 'assets/project-thumbs/thumb-07-vitality28.jpg',
+  '森机农业': 'assets/project-thumbs/thumb-08-senji.jpg',
+  '楚鲜汇·端午': 'assets/project-thumbs/thumb-09-dragon-boat.jpg',
+  '楚鲜汇UI': 'assets/project-thumbs/thumb-10-chuxianhui-ui.jpg',
+  '长江大学校招': 'assets/project-thumbs/thumb-11-yangtze-recruit.jpg',
+  '天润农业': 'assets/project-thumbs/thumb-12-tianrun.jpg',
+  '活力28·官网': 'assets/project-thumbs/thumb-13-vitality28-web.jpg',
+  '楚鲜汇': 'assets/project-thumbs/thumb-14-chuxianhui.jpg',
+  '高新区食品产业园': 'assets/project-thumbs/thumb-15-highzone.jpg'
 };
 let state = { filter: 'all', page: 1, slide: 0, timer: null };
 

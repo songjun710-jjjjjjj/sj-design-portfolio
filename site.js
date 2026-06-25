@@ -27,6 +27,8 @@ const PROJECT_THUMBS = {
 let state = { filter: 'all', page: 1, slide: 0, timer: null };
 let activeRouteKey = '';
 const scrollPositions = new Map();
+const SCROLL_STORAGE_PREFIX = 'sj-scroll:';
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
 const aboutItems = [
   '10+ 年设计类相关职业经验',
@@ -159,7 +161,7 @@ function renderProjects() {
 function projectCard(project) {
   const thumb = PROJECT_THUMBS[project.slug] || project.cover;
   return `
-    <a class="project-card reveal" href="${projectHref(project)}">
+    <a class="project-card reveal" href="${projectHref(project)}" data-project-card>
       <div class="project-thumb"><img src="${thumb}" alt="${project.title}" loading="lazy" decoding="async"></div>
       <strong class="project-title">${project.title}</strong>
     </a>`;
@@ -256,7 +258,7 @@ function bindDetailClickGuard() {
 
 function bindCarousel() {
   clearInterval(state.timer);
-  const interval = 11000;
+  const interval = 5000;
   const ensureSlideImage = index => {
     const img = document.querySelector(`.hero-slide[data-slide="${index}"] img`);
     if (img?.dataset.src && !img.src) {
@@ -303,6 +305,9 @@ function bindCarousel() {
 }
 
 function bindProjects() {
+  document.querySelectorAll('[data-project-card]').forEach(link => {
+    link.addEventListener('click', () => saveScrollForRoute(projectsHref(state.filter, state.page)));
+  });
   document.querySelectorAll('[data-filter]').forEach(btn => {
     btn.addEventListener('click', () => {
       state.filter = btn.dataset.filter || 'all';
@@ -500,9 +505,25 @@ function syncScrollState() {
   document.body.classList.toggle('is-scrolled', window.scrollY > 90);
 }
 
+function saveScrollForRoute(hash, y = window.scrollY) {
+  if (!hash) return;
+  scrollPositions.set(hash, y);
+  try {
+    sessionStorage.setItem(`${SCROLL_STORAGE_PREFIX}${hash}`, String(y));
+  } catch (error) {}
+}
+
 function saveCurrentScroll() {
-  if (!activeRouteKey) return;
-  scrollPositions.set(activeRouteKey, window.scrollY);
+  saveScrollForRoute(activeRouteKey);
+}
+
+function storedScrollForRoute(hash) {
+  if (scrollPositions.has(hash)) return scrollPositions.get(hash);
+  try {
+    const value = sessionStorage.getItem(`${SCROLL_STORAGE_PREFIX}${hash}`);
+    if (value !== null) return Number(value) || 0;
+  } catch (error) {}
+  return null;
 }
 
 function scrollToRoutePosition(hash, targetSelector) {
@@ -510,12 +531,20 @@ function scrollToRoutePosition(hash, targetSelector) {
     if (targetSelector) {
       const target = document.querySelector(targetSelector);
       if (target) target.scrollIntoView({ block: 'start' });
-    } else if (scrollPositions.has(hash)) {
-      window.scrollTo(0, scrollPositions.get(hash));
-    } else {
-      window.scrollTo(0, 0);
+      syncScrollState();
+      return;
     }
-    syncScrollState();
+
+    const storedY = storedScrollForRoute(hash);
+    const restore = () => {
+      window.scrollTo(0, storedY ?? 0);
+      syncScrollState();
+    };
+    restore();
+    if (storedY !== null) {
+      window.setTimeout(restore, 80);
+      window.setTimeout(restore, 360);
+    }
   });
 }
 

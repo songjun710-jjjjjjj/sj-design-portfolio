@@ -1,11 +1,11 @@
-const SJ_DATA = {"banners":["首页banner/首页1-high fidelity v2-1920w.png","首页banner/首页2-high fidelity v2-1920w.png","首页banner/首页3-high fidelity v2-1920w.jpg","首页banner/首页4-high fidelity v2-1920w.png"],"projects":[{"title":"楚韵传媒","slug":"楚韵传媒","category":"offline","year":"2026","cover":"项目详情/楚韵传媒/大图1.webp","images":["项目详情/楚韵传媒/详情1.webp","项目详情/楚韵传媒/详情2.webp","项目详情/楚韵传媒/详情3.webp","项目详情/楚韵传媒/详情4.webp","项目详情/楚韵传媒/详情5.webp","项目详情/楚韵传媒/详情6.webp","项目详情/楚韵传媒/详情7.webp","项目详情/楚韵传媒/详情8.webp","项目详情/楚韵传媒/详情9.webp"]},{"title":"CHUYUN MEDIA","slug":"CHUYUN-MEDIA","category":"offline","year":"2026","cover":"项目详情/CHUYUN MEDIA/大图1.webp","images":["项目详情/CHUYUN MEDIA/详情1.webp","项目详情/CHUYUN MEDIA/详情2.webp","项目详情/CHUYUN MEDIA/详情3.webp","项目详情/CHUYUN MEDIA/详情4.webp","项目详情/CHUYUN MEDIA/详情5.webp","项目详情/CHUYUN MEDIA/详情6.webp","项目详情/CHUYUN MEDIA/详情7.webp","项目详情/CHUYUN MEDIA/详情8.webp","项目详情/CHUYUN MEDIA/详情9.webp"]},{"title":"益膳","slug":"益膳","category":"offline","year":"","cover":"项目详情/益膳/大图1.webp","images":["项目详情/益膳/详情1.webp","项目详情/益膳/详情2.webp","项目详情/益膳/详情3.webp","项目详情/益膳/详情4.webp","项目详情/益膳/详情5.webp","项目详情/益膳/详情6.webp"]},{"title":"联投·增益楚菜产业园","slug":"联投·增益楚菜产业园","category":"offline","year":"","cover":"项目详情/联投·增益楚菜产业园/大图1.webp","images":["项目详情/联投·增益楚菜产业园/详情1.webp","项目详情/联投·增益楚菜产业园/详情2.webp","项目详情/联投·增益楚菜产业园/详情3.webp","项目详情/联投·增益楚菜产业园/详情4.webp","项目详情/联投·增益楚菜产业园/详情5.webp","项目详情/联投·增益楚菜产业园/详情6.webp","项目详情/联投·增益楚菜产业园/详情7.webp","项目详情/联投·增益楚菜产业园/详情8.webp"]},{"title":"LINKPLUS","slug":"LINKPLUS","category":"offline","year":"2026","cover":"项目详情/LINKPLUS/大图1.webp","images":["项目详情/LINKPLUS/详情1.webp","项目详情/LINKPLUS/详情2.webp","项目详情/LINKPLUS/详情3.webp","项目详情/LINKPLUS/详情4.webp","项目详情/LINKPLUS/详情5.webp","项目详情/LINKPLUS/详情6.webp","项目详情/LINKPLUS/详情7.webp"]},{"title":"增益冷链","slug":"增益冷链","category":"offline","year":"","cover":"项目详情/增益冷链/大图1.webp","images":["项目详情/增益冷链/详情1.webp","项目详情/增益冷链/详情2.webp","项目详情/增益冷链/详情3.webp","项目详情/增益冷链/详情4.webp","项目详情/增益冷链/详情5.webp"]},{"title":"活力28","slug":"活力28","category":"offline","year":"","cover":"项目详情/活力28/大图1.webp","images":["项目详情/活力28/详情1.webp","项目详情/活力28/详情2.webp","项目详情/活力28/详情3.webp","项目详情/活力28/详情4.webp"]},{"title":"森机农业","slug":"森机农业","category":"offline","year":"","cover":"项目详情/森机农业/大图1.webp","images":["项目详情/森机农业/详情1.webp","项目详情/森机农业/详情2.webp","项目详情/森机农业/详情3.webp","项目详情/森机农业/详情4.webp","项目详情/森机农业/详情5.webp","项目详情/森机农业/详情6.webp","项目详情/森机农业/详情7.webp"]},{"title":"楚鲜汇·端午","slug":"楚鲜汇·端午","category":"online","year":"","cover":"项目详情/楚鲜汇·端午/大图1.webp","images":["项目详情/楚鲜汇·端午/详情1.webp"]},{"title":"楚鲜汇UI","slug":"楚鲜汇UI","category":"online","year":"","cover":"项目详情/楚鲜汇UI/大图1.webp","images":["项目详情/楚鲜汇UI/详情1.webp"]},{"title":"长江大学校招","slug":"长江大学校招","category":"offline","year":"","cover":"项目详情/长江大学校招/大图1.webp","images":["项目详情/长江大学校招/详情1.webp"]},{"title":"天润农业","slug":"天润农业","category":"online","year":"","cover":"项目详情/天润农业/大图1.webp","images":["项目详情/天润农业/详情1.webp","项目详情/天润农业/详情2.webp"]},{"title":"活力28·官网","slug":"活力28·官网","category":"online","year":"","cover":"项目详情/活力28·官网/大图1.webp","images":["项目详情/活力28·官网/详情1.webp","项目详情/活力28·官网/详情2.webp","项目详情/活力28·官网/详情3.webp"]},{"title":"楚鲜汇","slug":"楚鲜汇","category":"offline","year":"","cover":"项目详情/楚鲜汇/大图1.webp","images":["项目详情/楚鲜汇/详情1.webp","项目详情/楚鲜汇/详情2.webp","项目详情/楚鲜汇/详情3.webp","项目详情/楚鲜汇/详情4.webp"]},{"title":"高新区食品产业园","slug":"高新区食品产业园","category":"offline","year":"","cover":"项目详情/高新区食品产业园/大图1.webp","images":["项目详情/高新区食品产业园/详情1.webp","项目详情/高新区食品产业园/详情2.webp","项目详情/高新区食品产业园/详情3.webp","项目详情/高新区食品产业园/详情4.webp","项目详情/高新区食品产业园/详情5.webp","项目详情/高新区食品产业园/详情6.webp","项目详情/高新区食品产业园/详情7.webp","项目详情/高新区食品产业园/详情8.webp","项目详情/高新区食品产业园/详情9.webp"]}]};
+const SJ_DATA = {"banners":["首页banner/首页轮播1.webp","首页banner/首页轮播2.webp","首页banner/首页轮播3.webp","首页banner/首页轮播4.webp"],"projects":[{"title":"楚韵传媒","slug":"楚韵传媒","category":"offline","year":"2026","cover":"项目详情/楚韵传媒/大图1.webp","images":["项目详情/楚韵传媒/详情1.webp","项目详情/楚韵传媒/详情2.webp","项目详情/楚韵传媒/详情3.webp","项目详情/楚韵传媒/详情4.webp","项目详情/楚韵传媒/详情5.webp","项目详情/楚韵传媒/详情6.webp","项目详情/楚韵传媒/详情7.webp","项目详情/楚韵传媒/详情8.webp","项目详情/楚韵传媒/详情9.webp"]},{"title":"CHUYUN MEDIA","slug":"CHUYUN-MEDIA","category":"offline","year":"2026","cover":"项目详情/CHUYUN MEDIA/大图1.webp","images":["项目详情/CHUYUN MEDIA/详情1.webp","项目详情/CHUYUN MEDIA/详情2.webp","项目详情/CHUYUN MEDIA/详情3.webp","项目详情/CHUYUN MEDIA/详情4.webp","项目详情/CHUYUN MEDIA/详情5.webp","项目详情/CHUYUN MEDIA/详情6.webp","项目详情/CHUYUN MEDIA/详情7.webp","项目详情/CHUYUN MEDIA/详情8.webp","项目详情/CHUYUN MEDIA/详情9.webp"]},{"title":"益膳","slug":"益膳","category":"offline","year":"","cover":"项目详情/益膳/大图1.webp","images":["项目详情/益膳/详情1.webp","项目详情/益膳/详情2.webp","项目详情/益膳/详情3.webp","项目详情/益膳/详情4.webp","项目详情/益膳/详情5.webp","项目详情/益膳/详情6.webp"]},{"title":"联投·增益楚菜产业园","slug":"联投·增益楚菜产业园","category":"offline","year":"","cover":"项目详情/联投·增益楚菜产业园/大图1.webp","images":["项目详情/联投·增益楚菜产业园/详情1.webp","项目详情/联投·增益楚菜产业园/详情2.webp","项目详情/联投·增益楚菜产业园/详情3.webp","项目详情/联投·增益楚菜产业园/详情4.webp","项目详情/联投·增益楚菜产业园/详情5.webp","项目详情/联投·增益楚菜产业园/详情6.webp","项目详情/联投·增益楚菜产业园/详情7.webp","项目详情/联投·增益楚菜产业园/详情8.webp"]},{"title":"LINKPLUS","slug":"LINKPLUS","category":"offline","year":"2026","cover":"项目详情/LINKPLUS/大图1.webp","images":["项目详情/LINKPLUS/详情1.webp","项目详情/LINKPLUS/详情2.webp","项目详情/LINKPLUS/详情3.webp","项目详情/LINKPLUS/详情4.webp","项目详情/LINKPLUS/详情5.webp","项目详情/LINKPLUS/详情6.webp","项目详情/LINKPLUS/详情7.webp"]},{"title":"增益冷链","slug":"增益冷链","category":"offline","year":"","cover":"项目详情/增益冷链/大图1.webp","images":["项目详情/增益冷链/详情1.webp","项目详情/增益冷链/详情2.webp","项目详情/增益冷链/详情3.webp","项目详情/增益冷链/详情4.webp","项目详情/增益冷链/详情5.webp"]},{"title":"活力28","slug":"活力28","category":"offline","year":"","cover":"项目详情/活力28/大图1.webp","images":["项目详情/活力28/详情1.webp","项目详情/活力28/详情2.webp","项目详情/活力28/详情3.webp","项目详情/活力28/详情4.webp"]},{"title":"森机农业","slug":"森机农业","category":"offline","year":"","cover":"项目详情/森机农业/大图1.webp","images":["项目详情/森机农业/详情1.webp","项目详情/森机农业/详情2.webp","项目详情/森机农业/详情3.webp","项目详情/森机农业/详情4.webp","项目详情/森机农业/详情5.webp","项目详情/森机农业/详情6.webp","项目详情/森机农业/详情7.webp"]},{"title":"楚鲜汇·端午","slug":"楚鲜汇·端午","category":"online","year":"","cover":"项目详情/楚鲜汇·端午/大图1.webp","images":["项目详情/楚鲜汇·端午/详情1.webp"]},{"title":"楚鲜汇UI","slug":"楚鲜汇UI","category":"online","year":"","cover":"项目详情/楚鲜汇UI/大图1.webp","images":["项目详情/楚鲜汇UI/详情1.webp"]},{"title":"长江大学校招","slug":"长江大学校招","category":"offline","year":"","cover":"项目详情/长江大学校招/大图1.webp","images":["项目详情/长江大学校招/详情1.webp"]},{"title":"天润农业","slug":"天润农业","category":"online","year":"","cover":"项目详情/天润农业/大图1.webp","images":["项目详情/天润农业/详情1.webp","项目详情/天润农业/详情2.webp"]},{"title":"活力28·官网","slug":"活力28·官网","category":"online","year":"","cover":"项目详情/活力28·官网/大图1.webp","images":["项目详情/活力28·官网/详情1.webp","项目详情/活力28·官网/详情2.webp","项目详情/活力28·官网/详情3.webp"]},{"title":"楚鲜汇","slug":"楚鲜汇","category":"offline","year":"","cover":"项目详情/楚鲜汇/大图1.webp","images":["项目详情/楚鲜汇/详情1.webp","项目详情/楚鲜汇/详情2.webp","项目详情/楚鲜汇/详情3.webp","项目详情/楚鲜汇/详情4.webp"]},{"title":"高新区食品产业园","slug":"高新区食品产业园","category":"offline","year":"","cover":"项目详情/高新区食品产业园/大图1.webp","images":["项目详情/高新区食品产业园/详情1.webp","项目详情/高新区食品产业园/详情2.webp","项目详情/高新区食品产业园/详情3.webp","项目详情/高新区食品产业园/详情4.webp","项目详情/高新区食品产业园/详情5.webp","项目详情/高新区食品产业园/详情6.webp","项目详情/高新区食品产业园/详情7.webp","项目详情/高新区食品产业园/详情8.webp","项目详情/高新区食品产业园/详情9.webp"]}]};
 const app = document.querySelector('#app');
 const HOME_BANNERS = [
-  { src: '首页banner/首页1-high fidelity v2-1920w.png', title: 'LINKPLUS 2026' },
-  { src: '首页banner/首页2-high fidelity v2-1920w.png', title: '活力28品牌重塑 2017' },
-  { src: '首页banner/首页3-high fidelity v2-1920w.jpg', title: '联投·增益楚菜产业园 2025' },
-  { src: '首页banner/首页4-high fidelity v2-1920w.png', title: 'CHUYUN MEDIA 2026' },
-  { src: 'assets/home-banner-5.png', title: '楚鲜汇·端午 2026' }
+  { src: '首页banner/首页轮播1.webp', title: 'LINKPLUS 2026' },
+  { src: '首页banner/首页轮播2.webp', title: '活力28品牌重塑 2017' },
+  { src: '首页banner/首页轮播3.webp', title: '联投·增益楚菜产业园 2025' },
+  { src: '首页banner/首页轮播4.webp', title: 'CHUYUN MEDIA 2026' },
+  { src: 'assets/home-banner-5.webp', title: '楚鲜汇·端午 2026' }
 ];
 const PROJECT_THUMBS = {
   '楚韵传媒': 'assets/project-thumbs/thumb-01-chuyun-media-cn.webp',
@@ -51,8 +51,8 @@ function setRoute(hash) {
   window.location.hash = hash.startsWith('#') ? hash : `#/${hash}`;
 }
 
-function projectHref(project) {
-  return `#/project/${encodeURIComponent(project.slug)}`;
+function projectHref(project, filter = state.filter, page = state.page) {
+  return `#/project/${encodeURIComponent(project.slug)}/${filter}/${page}`;
 }
 
 function projectsHref(filter = state.filter, page = state.page) {
@@ -147,6 +147,7 @@ function renderProjects() {
     ${footer()}`;
   bindProjects();
   bindFooter();
+  clearAppClickGuard();
   revealOnScroll();
 }
 
@@ -159,12 +160,14 @@ function projectCard(project) {
     </a>`;
 }
 
-function renderProjectDetail(slug) {
+function renderProjectDetail(slug, returnFilter = state.filter, returnPage = state.page) {
   const project = SJ_DATA.projects.find(item => item.slug === slug);
   if (!project) {
     renderProjects();
     return;
   }
+  const backFilter = ['all', 'offline', 'online'].includes(returnFilter) ? returnFilter : 'all';
+  const backPage = Math.max(1, Number(returnPage) || 1);
   app.innerHTML = `
     <article class="project-detail">
       <div class="detail-filter-band">
@@ -184,13 +187,14 @@ function renderProjectDetail(slug) {
         </section>
       </div>
       <nav class="detail-nav reveal" aria-label="Project navigation">
-        <a href="#/projects/all/1">← BACK TO PROJECTS</a>
+        <a href="${projectsHref(backFilter, backPage)}">← BACK TO PROJECTS</a>
         <a href="#/home">HOME</a>
       </nav>
     </article>
     ${footer()}`;
   bindFooter();
   bindProjects();
+  bindDetailClickGuard();
   revealOnScroll();
 }
 
@@ -221,10 +225,24 @@ function bindStaticPageGuard() {
   };
 }
 
+function clearAppClickGuard() {
+  app.onclick = null;
+}
+
 function bindHomeClickGuard() {
   app.onclick = event => {
     if (document.body.dataset.page !== 'home') return;
     if (event.target.closest('.carousel-controls,[data-back-top],.footer-nav a')) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (typeof event.stopImmediatePropagation === 'function') event.stopImmediatePropagation();
+  };
+}
+
+function bindDetailClickGuard() {
+  app.onclick = event => {
+    if (document.body.dataset.page !== 'project') return;
+    if (event.target.closest('a,button,input,textarea,select,label')) return;
     event.preventDefault();
     event.stopPropagation();
     if (typeof event.stopImmediatePropagation === 'function') event.stopImmediatePropagation();
@@ -413,7 +431,7 @@ function route() {
     state.page = Math.max(1, Number(parts[2]) || 1);
     renderProjects();
   }
-  else if (page === 'project') renderProjectDetail(decodeURIComponent(parts.slice(1).join('/')));
+  else if (page === 'project') renderProjectDetail(decodeURIComponent(parts[1] || ''), parts[2], parts[3]);
   else if (page === 'about') renderAbout();
   else if (page === 'contact') renderContact();
   else renderHome();

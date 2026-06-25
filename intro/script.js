@@ -9,8 +9,7 @@ function warmPortfolio() {
     ['prefetch', '../portfolio.html', 'document'],
     ['prefetch', '../site.css', 'style'],
     ['prefetch', '../site.js', 'script'],
-    ['preload', '../首页banner/首页1-high fidelity v2-1920w.png', 'image'],
-    ['preload', '../assets/header-brand.png', 'image']
+    ['preload', '../首页banner/首页轮播1.webp', 'image'],
   ].forEach(([rel, href, as]) => {
     const link = document.createElement('link');
     link.rel = rel;

@@ -82,6 +82,7 @@ function renderHome() {
   bindFooter();
   bindHomeClickGuard();
   revealOnScroll();
+  setupCapabilityMotion();
 }
 
 function aboutSection(extra = '', showCapabilities = true) {
@@ -93,10 +94,12 @@ function aboutSection(extra = '', showCapabilities = true) {
       ${showCapabilities ? `<div class="capability-grid">
         ${capabilities.map(([en, no, title, desc]) => `
           <article class="capability">
-            <small class="capability-en">${en}</small>
-            <small class="capability-no">${no}</small>
-            <b class="capability-title">${title}</b>
-            <p class="capability-desc">${desc}</p>
+            <div class="capability-copy">
+              <small class="capability-en">${en}</small>
+              <small class="capability-no">${no}</small>
+              <b class="capability-title">${title}</b>
+              <p class="capability-desc">${desc}</p>
+            </div>
           </article>`).join('')}
       </div>` : ''}
     </section>`;
@@ -415,6 +418,51 @@ function revealOnScroll() {
   items.forEach(item => observer.observe(item));
 }
 
+function splitCapabilityText(element, baseDelay) {
+  if (!element || element.dataset.splitDone === '1') return baseDelay;
+  const text = element.textContent;
+  element.textContent = '';
+  element.dataset.splitDone = '1';
+  let delay = baseDelay;
+  [...text].forEach(char => {
+    const span = document.createElement('span');
+    span.className = 'split-char';
+    span.style.transitionDelay = `${delay}ms`;
+    span.textContent = char === ' ' ? '\u00a0' : char;
+    element.appendChild(span);
+    delay += 34;
+  });
+  return delay + 40;
+}
+
+function setupCapabilityMotion() {
+  const cards = [...document.querySelectorAll('.home-about .capability')];
+  if (!cards.length) return;
+
+  cards.forEach((card, cardIndex) => {
+    if (card.dataset.motionReady === '1') return;
+    card.dataset.motionReady = '1';
+    let delay = cardIndex * 70;
+    ['.capability-en', '.capability-no', '.capability-title', '.capability-desc'].forEach(selector => {
+      delay = splitCapabilityText(card.querySelector(selector), delay);
+    });
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    cards.forEach(card => card.classList.add('is-motion-in'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-motion-in');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+
+  cards.forEach(card => observer.observe(card));
+}
 function syncScrollState() {
   document.body.classList.toggle('is-scrolled', window.scrollY > 90);
 }

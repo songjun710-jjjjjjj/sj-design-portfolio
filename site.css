@@ -101,3 +101,8 @@ figure{margin:0}
 .home-about .capability-title{display:block;font-family:"SJ Dongqing","Microsoft YaHei",Arial,sans-serif;font-size:19px;font-weight:400;line-height:1.25;color:#5f5f5f;margin-bottom:13px}
 .home-about .capability-desc{max-width:198px;margin:0;font-family:"SJ Dongqing","Microsoft YaHei",Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.95;color:#777}
 
+.home-about .capability-copy{transform-origin:left center;transition:transform .28s cubic-bezier(.22,.61,.36,1);will-change:transform}
+.home-about .capability:hover .capability-copy{transform:scale(1.018)}
+.home-about .capability .split-char{display:inline-block;opacity:0;transform:translateY(40px);transition-property:opacity,transform;transition-duration:.72s;transition-timing-function:cubic-bezier(.22,.61,.36,1);will-change:opacity,transform}
+.home-about .capability.is-motion-in .split-char{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.home-about .capability-copy{transition:none}.home-about .capability:hover .capability-copy{transform:none}.home-about .capability .split-char{opacity:1;transform:none;transition:none}}

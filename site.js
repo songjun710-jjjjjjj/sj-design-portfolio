@@ -28,6 +28,7 @@ let state = { filter: 'all', page: 1, slide: 0, timer: null };
 let activeRouteKey = '';
 const scrollPositions = new Map();
 const SCROLL_STORAGE_PREFIX = 'sj-scroll:';
+const PROJECT_RETURN_HASH_KEY = 'sj-project-return-hash';
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
 const aboutItems = [
@@ -55,12 +56,17 @@ function setRoute(hash) {
   window.location.hash = hash.startsWith('#') ? hash : `#/${hash}`;
 }
 
+function normalizedProjectPage(page = state.page) {
+  const value = Number(page);
+  return Number.isFinite(value) && value > 0 ? Math.floor(value) : 1;
+}
+
 function projectHref(project, filter = state.filter, page = state.page) {
-  return `#/project/${encodeURIComponent(project.slug)}/${filter}/${page}`;
+  return `#/project/${encodeURIComponent(project.slug)}/${filter}/${normalizedProjectPage(page)}`;
 }
 
 function projectsHref(filter = state.filter, page = state.page) {
-  return `#/projects/${filter}/${page}`;
+  return `#/projects/${filter}/${normalizedProjectPage(page)}`;
 }
 
 function renderHome() {
@@ -161,7 +167,7 @@ function renderProjects() {
 function projectCard(project) {
   const thumb = PROJECT_THUMBS[project.slug] || project.cover;
   return `
-    <a class="project-card reveal" href="${projectHref(project)}" data-project-card>
+    <a class="project-card reveal" href="${projectHref(project)}" data-project-card data-return-hash="${projectsHref(state.filter, state.page)}">
       <div class="project-thumb"><img src="${thumb}" alt="${project.title}" loading="lazy" decoding="async"></div>
       <strong class="project-title">${project.title}</strong>
     </a>`;
@@ -174,7 +180,11 @@ function renderProjectDetail(slug, returnFilter = state.filter, returnPage = sta
     return;
   }
   const backFilter = ['all', 'offline', 'online'].includes(returnFilter) ? returnFilter : 'all';
-  const backPage = Math.max(1, Number(returnPage) || 1);
+  const backPage = normalizedProjectPage(returnPage);
+  state.filter = backFilter;
+  state.page = backPage;
+  const backHash = projectsHref(backFilter, backPage);
+  rememberProjectReturnHash(backHash);
   app.innerHTML = `
     <article class="project-detail">
       <div class="detail-filter-band">
@@ -194,7 +204,7 @@ function renderProjectDetail(slug, returnFilter = state.filter, returnPage = sta
         </section>
       </div>
       <nav class="detail-nav reveal" aria-label="Project navigation">
-        <a href="${projectsHref(backFilter, backPage)}">← BACK TO PROJECTS</a>
+        <a href="${backHash}">← BACK TO PROJECTS</a>
         <a href="#/home">HOME</a>
       </nav>
     </article>
@@ -306,7 +316,11 @@ function bindCarousel() {
 
 function bindProjects() {
   document.querySelectorAll('[data-project-card]').forEach(link => {
-    link.addEventListener('click', () => saveScrollForRoute(projectsHref(state.filter, state.page)));
+    link.addEventListener('click', () => {
+      const returnHash = link.dataset.returnHash || projectsHref(state.filter, state.page);
+      rememberProjectReturnHash(returnHash);
+      saveScrollForRoute(returnHash);
+    });
   });
   document.querySelectorAll('[data-filter]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -505,6 +519,26 @@ function syncScrollState() {
   document.body.classList.toggle('is-scrolled', window.scrollY > 90);
 }
 
+function validProjectsHash(hash) {
+  return /^#\/projects\/(all|offline|online)\/\d+$/.test(hash || '');
+}
+
+function rememberProjectReturnHash(hash) {
+  if (!validProjectsHash(hash)) return;
+  try {
+    sessionStorage.setItem(PROJECT_RETURN_HASH_KEY, hash);
+  } catch (error) {}
+}
+
+function rememberedProjectReturnHash() {
+  try {
+    const hash = sessionStorage.getItem(PROJECT_RETURN_HASH_KEY);
+    return validProjectsHash(hash) ? hash : '';
+  } catch (error) {
+    return '';
+  }
+}
+
 function saveScrollForRoute(hash, y = window.scrollY) {
   if (!hash) return;
   scrollPositions.set(hash, y);
@@ -550,16 +584,26 @@ function scrollToRoutePosition(hash, targetSelector) {
 
 function route() {
   clearInterval(state.timer);
-  const hash = window.location.hash || '#/home';
+  let hash = window.location.hash || '#/home';
+  const returningFromProject = activeRouteKey.startsWith('#/project/');
   saveCurrentScroll();
-  const parts = hash.replace(/^#\/?/, '').split('/');
-  const page = parts[0] || 'home';
+  let parts = hash.replace(/^#\/?/, '').split('/');
+  let page = parts[0] || 'home';
+  if (returningFromProject && page === 'projects') {
+    const returnHash = rememberedProjectReturnHash();
+    if (returnHash && returnHash !== hash) {
+      history.replaceState(null, '', returnHash);
+      hash = returnHash;
+      parts = hash.replace(/^#\/?/, '').split('/');
+      page = parts[0] || 'home';
+    }
+  }
   document.body.dataset.page = page;
   let targetSelector = null;
   if (page === 'projects') {
     const filter = parts[1] || 'all';
     state.filter = ['all', 'offline', 'online'].includes(filter) ? filter : 'all';
-    state.page = Math.max(1, Number(parts[2]) || 1);
+    state.page = normalizedProjectPage(parts[2]);
     renderProjects();
   }
   else if (page === 'project') renderProjectDetail(decodeURIComponent(parts[1] || ''), parts[2], parts[3]);

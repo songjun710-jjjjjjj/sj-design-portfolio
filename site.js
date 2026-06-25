@@ -25,6 +25,8 @@ const PROJECT_THUMBS = {
   '高新区食品产业园': 'assets/project-thumbs/thumb-15-highzone.webp'
 };
 let state = { filter: 'all', page: 1, slide: 0, timer: null };
+let activeRouteKey = '';
+const scrollPositions = new Map();
 
 const aboutItems = [
   '10+ 年设计类相关职业经验',
@@ -254,6 +256,7 @@ function bindDetailClickGuard() {
 
 function bindCarousel() {
   clearInterval(state.timer);
+  const interval = 11000;
   const ensureSlideImage = index => {
     const img = document.querySelector(`.hero-slide[data-slide="${index}"] img`);
     if (img?.dataset.src && !img.src) {
@@ -276,12 +279,17 @@ function bindCarousel() {
       }, 180);
     }
   };
+  const startTimer = () => {
+    clearInterval(state.timer);
+    state.timer = setInterval(() => update(state.slide + 1), interval);
+  };
   const bindArrow = (selector, direction) => {
     document.querySelector(selector)?.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
       if (typeof event.stopImmediatePropagation === 'function') event.stopImmediatePropagation();
       update(state.slide + direction);
+      startTimer();
     });
   };
   bindArrow('[data-slide-prev]', -1);
@@ -291,7 +299,7 @@ function bindCarousel() {
   } else {
     window.setTimeout(() => ensureSlideImage((state.slide + 1) % HOME_BANNERS.length), 1800);
   }
-  state.timer = setInterval(() => update(state.slide + 1), 11000);
+  startTimer();
 }
 
 function bindProjects() {
@@ -418,21 +426,46 @@ function revealOnScroll() {
   items.forEach(item => observer.observe(item));
 }
 
+function capabilitySegments(text, animateByWords) {
+  if (animateByWords) {
+    return text.split(' ').reduce((segments, word, index, words) => {
+      if (!word) return segments;
+      segments.push(index < words.length - 1 ? `${word}\u00a0` : word);
+      return segments;
+    }, []);
+  }
+
+  const attachToPrevious = '、，。；：！？）】》';
+  return [...text].reduce((segments, char) => {
+    const value = char === ' ' ? '\u00a0' : char;
+    if (attachToPrevious.includes(char) && segments.length) {
+      segments[segments.length - 1] += value;
+    } else {
+      segments.push(value);
+    }
+    return segments;
+  }, []);
+}
+
 function splitCapabilityText(element, baseDelay) {
   if (!element || element.dataset.splitDone === '1') return baseDelay;
-  const text = element.textContent;
+  const text = element.textContent.trim();
+  const animateByWords = element.classList.contains('capability-en');
+  const segmentDelay = animateByWords ? 120 : 34;
   element.textContent = '';
   element.dataset.splitDone = '1';
   let delay = baseDelay;
-  [...text].forEach(char => {
+
+  capabilitySegments(text, animateByWords).forEach(segment => {
     const span = document.createElement('span');
-    span.className = 'split-char';
-    span.style.transitionDelay = `${delay}ms`;
-    span.textContent = char === ' ' ? '\u00a0' : char;
+    span.className = 'blur-segment';
+    span.style.animationDelay = `${delay}ms`;
+    span.textContent = segment;
     element.appendChild(span);
-    delay += 34;
+    delay += segmentDelay;
   });
-  return delay + 40;
+
+  return delay + 80;
 }
 
 function setupCapabilityMotion() {
@@ -459,7 +492,7 @@ function setupCapabilityMotion() {
       entry.target.classList.add('is-motion-in');
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+  }, { threshold: 0.1, rootMargin: '0px' });
 
   cards.forEach(card => observer.observe(card));
 }
@@ -467,12 +500,33 @@ function syncScrollState() {
   document.body.classList.toggle('is-scrolled', window.scrollY > 90);
 }
 
+function saveCurrentScroll() {
+  if (!activeRouteKey) return;
+  scrollPositions.set(activeRouteKey, window.scrollY);
+}
+
+function scrollToRoutePosition(hash, targetSelector) {
+  requestAnimationFrame(() => {
+    if (targetSelector) {
+      const target = document.querySelector(targetSelector);
+      if (target) target.scrollIntoView({ block: 'start' });
+    } else if (scrollPositions.has(hash)) {
+      window.scrollTo(0, scrollPositions.get(hash));
+    } else {
+      window.scrollTo(0, 0);
+    }
+    syncScrollState();
+  });
+}
+
 function route() {
   clearInterval(state.timer);
   const hash = window.location.hash || '#/home';
+  saveCurrentScroll();
   const parts = hash.replace(/^#\/?/, '').split('/');
   const page = parts[0] || 'home';
   document.body.dataset.page = page;
+  let targetSelector = null;
   if (page === 'projects') {
     const filter = parts[1] || 'all';
     state.filter = ['all', 'offline', 'online'].includes(filter) ? filter : 'all';
@@ -480,13 +534,19 @@ function route() {
     renderProjects();
   }
   else if (page === 'project') renderProjectDetail(decodeURIComponent(parts[1] || ''), parts[2], parts[3]);
-  else if (page === 'about') renderAbout();
-  else if (page === 'contact') renderContact();
+  else if (page === 'about') {
+    document.body.dataset.page = 'home';
+    renderHome();
+    targetSelector = '#about';
+  }
+  else if (page === 'contact') {
+    document.body.dataset.page = 'home';
+    renderHome();
+    targetSelector = '#contact';
+  }
   else renderHome();
-  requestAnimationFrame(() => {
-    window.scrollTo(0, 0);
-    syncScrollState();
-  });
+  activeRouteKey = hash;
+  scrollToRoutePosition(hash, targetSelector);
 }
 
 function playIntroEntry() {

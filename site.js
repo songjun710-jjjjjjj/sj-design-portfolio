@@ -268,7 +268,7 @@ function bindDetailClickGuard() {
 
 function bindCarousel() {
   clearInterval(state.timer);
-  const interval = 8000;
+  const interval = 6000;
   const ensureSlideImage = index => {
     const img = document.querySelector(`.hero-slide[data-slide="${index}"] img`);
     if (img?.dataset.src && !img.src) {

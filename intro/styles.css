@@ -46,4 +46,22 @@ body{margin:0;overflow:hidden;background:#d9e1e4}
 @media(max-width:760px){.cn-left{width:52vw;left:-18vw}.cn-right{width:50vw;left:68vw}.cn-bottom{width:58vw;left:20vw}.cf-left{width:43vw;left:10vw}.cf-center{width:46vw;left:30vw}.cf-right{width:39vw;left:55vw}.cb-left,.cb-right{width:44vw}.cloud-low{width:20vw}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
+.mobile-intro-header,.mobile-intro-copy{display:none}
+@font-face{font-family:"SJ Intro Times";src:url("../fonts/timesbi.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"SJ Intro Sans";src:url("../fonts/Hiragino Sans GB W6.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"SJ Intro Sans";src:url("../fonts/Hiragino Sans GB W3.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@media(max-width:680px){
+  .intro{min-height:0;background:#fff}
+  .bg{top:92px;height:calc(100% - 92px);object-fit:cover;object-position:center;transform:none;animation:none;filter:none;opacity:1}
+  .text-layer,.button-edge-glow,.button-flow-glow,.cloud{display:none}
+  .mobile-intro-header{display:block;position:absolute;left:0;right:0;top:0;height:92px;z-index:20;background:#fff;border-bottom:1px solid #eeeeee;color:#111}
+  .mobile-menu-mark{position:absolute;left:24px;top:34px;width:34px;height:20px;border-top:3px solid #111;border-bottom:3px solid #111}
+  .mobile-menu-mark::before{content:"";position:absolute;left:0;right:0;top:5px;border-top:3px solid #111}
+  .mobile-brand{position:absolute;left:70px;right:70px;top:25px;text-align:center;font-family:"SJ Intro Sans","Hiragino Sans GB",Arial,sans-serif;font-size:clamp(14px,3.6vw,16px);font-weight:700;line-height:1;letter-spacing:.02em;white-space:nowrap;overflow:hidden}
+  .mobile-brand-year{position:absolute;left:70px;right:70px;top:54px;text-align:center;font-family:"SJ Intro Sans","Hiragino Sans GB",Arial,sans-serif;font-size:10px;font-weight:400;line-height:1;letter-spacing:.08em;color:#777}
+  .mobile-intro-copy{display:block;position:absolute;left:0;right:0;top:92px;bottom:0;z-index:12;color:#fff;text-align:center;pointer-events:none;user-select:none;text-rendering:geometricPrecision;-webkit-font-smoothing:antialiased}
+  .mobile-title{position:absolute;left:0;right:0;top:35.3%;height:auto;transform:translateY(-50%);display:block;font-family:"SJ Intro Times","Times New Roman",serif;font-size:clamp(38px,10.4vw,46px);font-weight:700;font-style:italic;line-height:1.06;letter-spacing:0;text-shadow:0 8px 20px rgba(20,28,31,.18)}
+  .mobile-title-sub{position:absolute;left:0;right:0;top:51.1%;display:block;font-family:"SJ Intro Sans","Hiragino Sans GB",Arial,sans-serif;font-size:13px;font-weight:400;line-height:1;letter-spacing:.48em;color:#fff;text-shadow:0 5px 14px rgba(20,28,31,.18)}
+  .mobile-into{position:absolute;left:50%;top:68.3%;transform:translateX(-50%);width:128px;height:44px;border:2px solid rgba(255,255,255,.9);border-radius:999px;background:rgba(255,255,255,.16);font-family:"SJ Intro Times","Times New Roman",serif;font-size:16px;font-weight:700;font-style:italic;line-height:40px;color:#fff;text-shadow:0 4px 12px rgba(20,28,31,.18)}
+}
 

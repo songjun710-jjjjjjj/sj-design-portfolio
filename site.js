@@ -563,9 +563,14 @@ function storedScrollForRoute(hash) {
 function scrollToRoutePosition(hash, targetSelector) {
   requestAnimationFrame(() => {
     if (targetSelector) {
-      const target = document.querySelector(targetSelector);
-      if (target) target.scrollIntoView({ block: 'start' });
-      syncScrollState();
+      const alignTarget = () => {
+        const target = document.querySelector(targetSelector);
+        if (target) target.scrollIntoView({ block: 'start' });
+        syncScrollState();
+      };
+      alignTarget();
+      window.setTimeout(alignTarget, 80);
+      window.setTimeout(alignTarget, 360);
       return;
     }
 

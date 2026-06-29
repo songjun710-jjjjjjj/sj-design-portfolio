@@ -306,6 +306,58 @@ function bindCarousel() {
   };
   bindArrow('[data-slide-prev]', -1);
   bindArrow('[data-slide-next]', 1);
+  const carousel = document.querySelector('.hero-carousel');
+  if (carousel) {
+    let swipeStartX = 0;
+    let swipeStartY = 0;
+    let swipeTracking = false;
+    let swipeMoved = false;
+    let suppressSwipeClick = false;
+    const resetSwipe = () => {
+      swipeTracking = false;
+      swipeMoved = false;
+    };
+
+    carousel.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'mouse') return;
+      swipeStartX = event.clientX;
+      swipeStartY = event.clientY;
+      swipeTracking = true;
+      swipeMoved = false;
+    });
+
+    carousel.addEventListener('pointermove', event => {
+      if (!swipeTracking) return;
+      const dx = event.clientX - swipeStartX;
+      const dy = event.clientY - swipeStartY;
+      if (Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        swipeMoved = true;
+        event.preventDefault();
+      }
+    });
+
+    carousel.addEventListener('pointerup', event => {
+      if (!swipeTracking) return;
+      const dx = event.clientX - swipeStartX;
+      const dy = event.clientY - swipeStartY;
+      const isSwipe = Math.abs(dx) >= 44 && Math.abs(dx) > Math.abs(dy) * 1.15;
+      resetSwipe();
+      if (!isSwipe) return;
+      event.preventDefault();
+      event.stopPropagation();
+      suppressSwipeClick = true;
+      update(state.slide + (dx < 0 ? 1 : -1));
+      startTimer();
+    });
+
+    carousel.addEventListener('pointercancel', resetSwipe);
+    carousel.addEventListener('click', event => {
+      if (!suppressSwipeClick) return;
+      suppressSwipeClick = false;
+      event.preventDefault();
+      event.stopPropagation();
+    });
+  }
   if ('requestIdleCallback' in window) {
     requestIdleCallback(() => ensureSlideImage((state.slide + 1) % HOME_BANNERS.length), { timeout: 2500 });
   } else {

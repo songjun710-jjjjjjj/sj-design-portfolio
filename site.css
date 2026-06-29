@@ -54,7 +54,7 @@ figure{margin:0}
 .home-contact{margin-top:21px;padding-top:58px;padding-bottom:72px}
 .home-contact .contact-list{width:min(1033px,calc(100vw - 48px));gap:58px}
 .home-contact .contact-item{width:346px}
-.home-contact .contact-item h2{font-family:"SJ Times","SJ Song","Times New Roman",SimSun,serif;font-size:21px;font-weight:700;line-height:1.2;margin-bottom:29px}
+.home-contact .contact-item h2{font-family:"SJ Times","SJ Song","Times New Roman",SimSun,serif;font-size:21px;font-weight:700;line-height:1.2;border-bottom:1px solid var(--accent);padding-bottom:2px;margin-bottom:29px}
 .home-contact .contact-item p{font-family:var(--sans);font-size:20px;letter-spacing:.02em;color:#666}
 .contact-page-body{margin-top:21px;padding:56px 0 53px;background:#f1f1f1}
 .contact-page-body .contact-list{width:min(1032px,calc(100vw - 48px));display:grid;gap:70px}

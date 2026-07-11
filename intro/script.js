@@ -7,8 +7,12 @@ loadDesktopAssets();
 function loadDesktopAssets() {
   if (!window.matchMedia('(min-width: 681px)').matches) return;
   document.querySelectorAll('[data-desktop-src]').forEach(image => {
+    if (image.getAttribute('src')) return;
+    const reveal = () => image.removeAttribute('data-desktop-src');
+    image.addEventListener('load', reveal, { once: true });
+    image.addEventListener('error', reveal, { once: true });
     image.src = image.dataset.desktopSrc;
-    image.removeAttribute('data-desktop-src');
+    if (image.complete && image.naturalWidth) reveal();
   });
 }
 

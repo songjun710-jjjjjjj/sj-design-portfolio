@@ -3,6 +3,7 @@ html,body{width:100%;height:100%}
 body{margin:0;overflow:hidden;background:#d9e1e4}
 .intro{position:relative;width:100vw;height:100svh;min-height:560px;overflow:hidden;cursor:pointer;background:#d9e1e4;isolation:isolate;perspective:900px}
 .bg,.text-layer,.cloud,.button-edge-glow,.wash{position:absolute;pointer-events:none;user-select:none}
+[data-desktop-src]{visibility:hidden}
 .bg{inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.052) translate3d(0,-1.05vh,0);animation:bgPull 6.6s linear infinite alternate;will-change:transform,filter}
 .text-layer{inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:translateZ(0)}
 .text-fixed{z-index:5;filter:drop-shadow(0 20px 30px rgba(19,30,34,.06))}

@@ -11,11 +11,14 @@
 
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260711-performance-compat">
 </head>
 <body>
   <main class="intro" role="button" tabindex="0" aria-label="Into SONGJUN DESIGN portfolio">
-    <img class="bg" src="intro-background-optimized.webp" alt="" fetchpriority="high" decoding="async">
+    <picture>
+      <source srcset="intro-background-optimized.webp" type="image/webp">
+      <img class="bg" src="背景层.png" alt="" fetchpriority="high" decoding="async">
+    </picture>
 
     <img class="cloud cloud-back cb-left" data-desktop-src="fog-cluster-08.png" alt="" aria-hidden="true" decoding="async">
     <img class="cloud cloud-back cb-right" data-desktop-src="fog-cluster-09.png" alt="" aria-hidden="true" decoding="async">
@@ -47,7 +50,27 @@
     <span class="button-flow-glow" aria-hidden="true"></span>
     <div class="wash" aria-hidden="true"></div>
   </main>
-  <script src="script.js"></script>
+  <script>
+    (function () {
+      if (!window.matchMedia || !window.matchMedia('(min-width: 681px)').matches) return;
+      var images = document.querySelectorAll('[data-desktop-src]');
+      for (var index = 0; index < images.length; index += 1) {
+        (function (image) {
+          var reveal = function () {
+            image.removeAttribute('data-desktop-src');
+          };
+          image.addEventListener('load', reveal, false);
+          image.addEventListener('error', function () {
+            image.style.display = 'none';
+            reveal();
+          }, false);
+          image.setAttribute('src', image.getAttribute('data-desktop-src'));
+          if (image.complete && image.naturalWidth) reveal();
+        }(images[index]));
+      }
+    }());
+  </script>
+  <script src="script.js?v=20260711-performance-compat"></script>
 </body>
 </html>
 

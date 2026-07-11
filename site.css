@@ -1,10 +1,10 @@
-@font-face{font-family:"SJ Times";src:url("fonts/times.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"SJ Times";src:url("fonts/timesbd.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:"SJ Times";src:url("fonts/timesi.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:"SJ Times";src:url("fonts/timesbi.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
-@font-face{font-family:"SJ Hiragino";src:url("fonts/Hiragino Sans GB W3.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"SJ Hiragino";src:url("fonts/Hiragino Sans GB W6.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:"SJ Song";src:url("fonts/简小标宋.TTF") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"SJ Times";src:url("fonts/SJ-Times-Regular-subset.woff2") format("woff2"),url("fonts/times.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"SJ Times";src:url("fonts/SJ-Times-Bold-subset.woff2") format("woff2"),url("fonts/timesbd.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"SJ Times";src:url("fonts/SJ-Times-Italic-subset.woff2") format("woff2"),url("fonts/timesi.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"SJ Times";src:url("fonts/SJ-Times-BoldItalic-subset.woff2") format("woff2"),url("fonts/timesbi.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"SJ Hiragino";src:url("fonts/SJ-Hiragino-W3-subset.woff2") format("woff2"),url("fonts/Hiragino Sans GB W3.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"SJ Hiragino";src:url("fonts/SJ-Hiragino-W6-subset.woff2") format("woff2"),url("fonts/Hiragino Sans GB W6.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"SJ Song";src:url("fonts/SJ-Song-subset.woff2") format("woff2"),url("fonts/简小标宋.TTF") format("truetype");font-weight:700;font-style:normal;font-display:swap}
 :root{--text:#2d2d2d;--muted:#8b8b8b;--line:#dedede;--soft:#f3f3f3;--accent:#e23a3a;--page:#fff;--max:1032px;--detail-hero:1381px;--serif:"SJ Times","SJ Song","Times New Roman",SimSun,serif;--sans:"SJ Hiragino","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}

@@ -2,15 +2,28 @@ const intro = document.querySelector('.intro');
 const buttonFlowGlow = document.querySelector('.button-flow-glow');
 let portfolioWarmed = false;
 
+loadDesktopAssets();
+
+function loadDesktopAssets() {
+  if (!window.matchMedia('(min-width: 681px)').matches) return;
+  document.querySelectorAll('[data-desktop-src]').forEach(image => {
+    image.src = image.dataset.desktopSrc;
+    image.removeAttribute('data-desktop-src');
+  });
+}
+
 function warmPortfolio() {
   if (portfolioWarmed) return;
   portfolioWarmed = true;
-  [
+  const resources = [
     ['prefetch', '../portfolio.html', 'document'],
-    ['prefetch', '../site.css', 'style'],
-    ['prefetch', '../site.js', 'script'],
-    ['preload', '../首页banner/首页轮播1.webp', 'image'],
-  ].forEach(([rel, href, as]) => {
+    ['preload', '../site.css?v=20260711-performance', 'style'],
+    ['preload', '../site.js?v=20260711-performance', 'script'],
+  ];
+  if (window.matchMedia('(min-width: 681px)').matches) {
+    resources.push(['preload', '../首页banner/首页轮播1.webp', 'image']);
+  }
+  resources.forEach(([rel, href, as]) => {
     const link = document.createElement('link');
     link.rel = rel;
     link.href = href;
@@ -18,7 +31,6 @@ function warmPortfolio() {
     document.head.appendChild(link);
   });
 }
-
 function leave() {
   if (intro.classList.contains('is-leaving')) return;
   warmPortfolio();
@@ -72,9 +84,3 @@ intro.addEventListener('pointerleave', () => {
   intro.classList.remove('is-button-near');
   if (buttonFlowGlow) buttonFlowGlow.style.setProperty('--glow-opacity', '0');
 });
-
-if ('requestIdleCallback' in window) {
-  requestIdleCallback(warmPortfolio, { timeout: 1600 });
-} else {
-  window.setTimeout(warmPortfolio, 1200);
-}

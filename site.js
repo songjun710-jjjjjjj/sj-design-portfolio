@@ -1,7 +1,7 @@
 const SJ_DATA = {"banners":["首页banner/首页轮播1.webp","首页banner/首页轮播2.webp","首页banner/首页轮播3.webp","首页banner/首页轮播4.webp"],"projects":[{"title":"楚韵传媒","slug":"楚韵传媒","category":"offline","year":"2026","cover":"项目详情/楚韵传媒/大图1.webp","images":["项目详情/楚韵传媒/详情1.webp","项目详情/楚韵传媒/详情2.webp","项目详情/楚韵传媒/详情3.webp","项目详情/楚韵传媒/详情4.webp","项目详情/楚韵传媒/详情5.webp","项目详情/楚韵传媒/详情6.webp","项目详情/楚韵传媒/详情7.webp","项目详情/楚韵传媒/详情8.webp","项目详情/楚韵传媒/详情9.webp"]},{"title":"CHUYUN MEDIA","slug":"CHUYUN-MEDIA","category":"offline","year":"2026","cover":"项目详情/CHUYUN MEDIA/大图1.webp","images":["项目详情/CHUYUN MEDIA/详情1.webp","项目详情/CHUYUN MEDIA/详情2.webp","项目详情/CHUYUN MEDIA/详情3.webp","项目详情/CHUYUN MEDIA/详情4.webp","项目详情/CHUYUN MEDIA/详情5.webp","项目详情/CHUYUN MEDIA/详情6.webp","项目详情/CHUYUN MEDIA/详情7.webp","项目详情/CHUYUN MEDIA/详情8.webp","项目详情/CHUYUN MEDIA/详情9.webp"]},{"title":"益膳","slug":"益膳","category":"offline","year":"","cover":"项目详情/益膳/大图1.webp","images":["项目详情/益膳/详情1.webp","项目详情/益膳/详情2.webp","项目详情/益膳/详情3.webp","项目详情/益膳/详情4.webp","项目详情/益膳/详情5.webp","项目详情/益膳/详情6.webp"]},{"title":"联投·增益楚菜产业园","slug":"联投·增益楚菜产业园","category":"offline","year":"","cover":"项目详情/联投·增益楚菜产业园/大图1.webp","images":["项目详情/联投·增益楚菜产业园/详情1.webp","项目详情/联投·增益楚菜产业园/详情2.webp","项目详情/联投·增益楚菜产业园/详情3.webp","项目详情/联投·增益楚菜产业园/详情4.webp","项目详情/联投·增益楚菜产业园/详情5.webp","项目详情/联投·增益楚菜产业园/详情6.webp","项目详情/联投·增益楚菜产业园/详情7.webp","项目详情/联投·增益楚菜产业园/详情8.webp"]},{"title":"LINKPLUS","slug":"LINKPLUS","category":"offline","year":"2026","cover":"项目详情/LINKPLUS/大图1.webp","images":["项目详情/LINKPLUS/详情1.webp","项目详情/LINKPLUS/详情2.webp","项目详情/LINKPLUS/详情3.webp","项目详情/LINKPLUS/详情4.webp","项目详情/LINKPLUS/详情5.webp","项目详情/LINKPLUS/详情6.webp","项目详情/LINKPLUS/详情7.webp"]},{"title":"增益冷链","slug":"增益冷链","category":"offline","year":"","cover":"项目详情/增益冷链/大图1.webp","images":["项目详情/增益冷链/详情1.webp","项目详情/增益冷链/详情2.webp","项目详情/增益冷链/详情3.webp","项目详情/增益冷链/详情4.webp","项目详情/增益冷链/详情5.webp"]},{"title":"活力28","slug":"活力28","category":"offline","year":"","cover":"项目详情/活力28/大图1.webp","images":["项目详情/活力28/详情1.webp","项目详情/活力28/详情2.webp","项目详情/活力28/详情3.webp","项目详情/活力28/详情4.webp"]},{"title":"森机农业","slug":"森机农业","category":"offline","year":"","cover":"项目详情/森机农业/大图1.webp","images":["项目详情/森机农业/详情1.webp","项目详情/森机农业/详情2.webp","项目详情/森机农业/详情3.webp","项目详情/森机农业/详情4.webp","项目详情/森机农业/详情5.webp","项目详情/森机农业/详情6.webp","项目详情/森机农业/详情7.webp"]},{"title":"楚鲜汇·端午","slug":"楚鲜汇·端午","category":"online","year":"","cover":"项目详情/楚鲜汇·端午/大图1.webp","images":["项目详情/楚鲜汇·端午/详情1.webp"]},{"title":"楚鲜汇UI","slug":"楚鲜汇UI","category":"online","year":"","cover":"项目详情/楚鲜汇UI/大图1.webp","images":["项目详情/楚鲜汇UI/详情1.webp"]},{"title":"长江大学校招","slug":"长江大学校招","category":"offline","year":"","cover":"项目详情/长江大学校招/大图1.webp","images":["项目详情/长江大学校招/详情1.webp"]},{"title":"天润农业","slug":"天润农业","category":"online","year":"","cover":"项目详情/天润农业/大图1.webp","images":["项目详情/天润农业/详情1.webp","项目详情/天润农业/详情2.webp"]},{"title":"活力28·官网","slug":"活力28·官网","category":"online","year":"","cover":"项目详情/活力28·官网/大图1.webp","images":["项目详情/活力28·官网/详情1.webp","项目详情/活力28·官网/详情2.webp","项目详情/活力28·官网/详情3.webp"]},{"title":"楚鲜汇","slug":"楚鲜汇","category":"offline","year":"","cover":"项目详情/楚鲜汇/大图1.webp","images":["项目详情/楚鲜汇/详情1.webp","项目详情/楚鲜汇/详情2.webp","项目详情/楚鲜汇/详情3.webp","项目详情/楚鲜汇/详情4.webp"]},{"title":"高新区食品产业园","slug":"高新区食品产业园","category":"offline","year":"","cover":"项目详情/高新区食品产业园/大图1.webp","images":["项目详情/高新区食品产业园/详情1.webp","项目详情/高新区食品产业园/详情2.webp","项目详情/高新区食品产业园/详情3.webp","项目详情/高新区食品产业园/详情4.webp","项目详情/高新区食品产业园/详情5.webp","项目详情/高新区食品产业园/详情6.webp","项目详情/高新区食品产业园/详情7.webp","项目详情/高新区食品产业园/详情8.webp","项目详情/高新区食品产业园/详情9.webp"]}]};
 const app = document.querySelector('#app');
 const HOME_BANNERS = [
-  { src: '首页banner/首页轮播1.webp', title: 'LINKPLUS 2026' },
+  { src: '首页banner/首页轮播1.webp', title: 'LINKPLUS 2026', mobileSrc: 'assets/home-banner-1-mobile.webp' },
   { src: '首页banner/首页轮播2.webp', title: '活力28品牌重塑 2017' },
   { src: '首页banner/首页轮播3.webp', title: '联投·增益楚菜产业园 2025' },
   { src: '首页banner/首页轮播4.webp', title: 'CHUYUN MEDIA 2026' },
@@ -75,7 +75,7 @@ function renderHome() {
     <section class="hero-carousel" aria-label="Selected works">
       ${HOME_BANNERS.map((banner, index) => `
         <figure class="hero-slide ${index === state.slide ? 'is-active' : ''}" data-slide="${index}">
-          <img ${index === state.slide ? `src="${banner.src}" fetchpriority="high" loading="eager"` : `data-src="${banner.src}" loading="lazy"`} alt="${banner.title}" decoding="async">
+          <img ${banner.mobileSrc ? `srcset="${banner.mobileSrc} 1600w, ${banner.src} 1920w" sizes="100vw"` : ''} ${index === state.slide ? `src="${banner.src}" fetchpriority="high" loading="eager"` : `data-src="${banner.src}" loading="lazy"`} alt="${banner.title}" decoding="async">
         </figure>`).join('')}
     </section>
     <div class="hero-caption reveal">
@@ -358,12 +358,27 @@ function bindCarousel() {
       event.stopPropagation();
     });
   }
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => ensureSlideImage((state.slide + 1) % HOME_BANNERS.length), { timeout: 2500 });
-  } else {
-    window.setTimeout(() => ensureSlideImage((state.slide + 1) % HOME_BANNERS.length), 1800);
+  const firstImage = document.querySelector('.hero-slide.is-active img');
+  if (!firstImage) {
+    startTimer();
+    return;
   }
-  startTimer();
+  const loaded = firstImage.complete && firstImage.naturalWidth
+    ? Promise.resolve()
+    : new Promise(resolve => {
+      firstImage.addEventListener('load', resolve, { once: true });
+      firstImage.addEventListener('error', resolve, { once: true });
+    });
+  loaded
+    .then(() => firstImage.decode?.())
+    .catch(() => {})
+    .finally(() => {
+      startTimer();
+      window.setTimeout(
+        () => ensureSlideImage((state.slide + 1) % HOME_BANNERS.length),
+        1200
+      );
+    });
 }
 
 function bindProjects() {

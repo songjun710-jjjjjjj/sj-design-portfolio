@@ -1,13 +1,43 @@
 const SJ_DATA = {"banners":["首页banner/首页轮播1.webp","首页banner/首页轮播2.webp","首页banner/首页轮播3.webp","首页banner/首页轮播4.webp"],"projects":[{"title":"楚韵传媒","slug":"楚韵传媒","category":"offline","year":"2026","cover":"项目详情/楚韵传媒/大图1.webp","images":["项目详情/楚韵传媒/详情1.webp","项目详情/楚韵传媒/详情2.webp","项目详情/楚韵传媒/详情3.webp","项目详情/楚韵传媒/详情4.webp","项目详情/楚韵传媒/详情5.webp","项目详情/楚韵传媒/详情6.webp","项目详情/楚韵传媒/详情7.webp","项目详情/楚韵传媒/详情8.webp","项目详情/楚韵传媒/详情9.webp"]},{"title":"CHUYUN MEDIA","slug":"CHUYUN-MEDIA","category":"offline","year":"2026","cover":"项目详情/CHUYUN MEDIA/大图1.webp","images":["项目详情/CHUYUN MEDIA/详情1.webp","项目详情/CHUYUN MEDIA/详情2.webp","项目详情/CHUYUN MEDIA/详情3.webp","项目详情/CHUYUN MEDIA/详情4.webp","项目详情/CHUYUN MEDIA/详情5.webp","项目详情/CHUYUN MEDIA/详情6.webp","项目详情/CHUYUN MEDIA/详情7.webp","项目详情/CHUYUN MEDIA/详情8.webp","项目详情/CHUYUN MEDIA/详情9.webp"]},{"title":"益膳","slug":"益膳","category":"offline","year":"","cover":"项目详情/益膳/大图1.webp","images":["项目详情/益膳/详情1.webp","项目详情/益膳/详情2.webp","项目详情/益膳/详情3.webp","项目详情/益膳/详情4.webp","项目详情/益膳/详情5.webp","项目详情/益膳/详情6.webp"]},{"title":"联投·增益楚菜产业园","slug":"联投·增益楚菜产业园","category":"offline","year":"","cover":"项目详情/联投·增益楚菜产业园/大图1.webp","images":["项目详情/联投·增益楚菜产业园/详情1.webp","项目详情/联投·增益楚菜产业园/详情2.webp","项目详情/联投·增益楚菜产业园/详情3.webp","项目详情/联投·增益楚菜产业园/详情4.webp","项目详情/联投·增益楚菜产业园/详情5.webp","项目详情/联投·增益楚菜产业园/详情6.webp","项目详情/联投·增益楚菜产业园/详情7.webp","项目详情/联投·增益楚菜产业园/详情8.webp"]},{"title":"LINKPLUS","slug":"LINKPLUS","category":"offline","year":"2026","cover":"项目详情/LINKPLUS/大图1.webp","images":["项目详情/LINKPLUS/详情1.webp","项目详情/LINKPLUS/详情2.webp","项目详情/LINKPLUS/详情3.webp","项目详情/LINKPLUS/详情4.webp","项目详情/LINKPLUS/详情5.webp","项目详情/LINKPLUS/详情6.webp","项目详情/LINKPLUS/详情7.webp"]},{"title":"增益冷链","slug":"增益冷链","category":"offline","year":"","cover":"项目详情/增益冷链/大图1.webp","images":["项目详情/增益冷链/详情1.webp","项目详情/增益冷链/详情2.webp","项目详情/增益冷链/详情3.webp","项目详情/增益冷链/详情4.webp","项目详情/增益冷链/详情5.webp"]},{"title":"活力28","slug":"活力28","category":"offline","year":"","cover":"项目详情/活力28/大图1.webp","images":["项目详情/活力28/详情1.webp","项目详情/活力28/详情2.webp","项目详情/活力28/详情3.webp","项目详情/活力28/详情4.webp"]},{"title":"森机农业","slug":"森机农业","category":"offline","year":"","cover":"项目详情/森机农业/大图1.webp","images":["项目详情/森机农业/详情1.webp","项目详情/森机农业/详情2.webp","项目详情/森机农业/详情3.webp","项目详情/森机农业/详情4.webp","项目详情/森机农业/详情5.webp","项目详情/森机农业/详情6.webp","项目详情/森机农业/详情7.webp"]},{"title":"楚鲜汇·端午","slug":"楚鲜汇·端午","category":"online","year":"","cover":"项目详情/楚鲜汇·端午/大图1.webp","images":["项目详情/楚鲜汇·端午/详情1.webp"]},{"title":"楚鲜汇UI","slug":"楚鲜汇UI","category":"online","year":"","cover":"项目详情/楚鲜汇UI/大图1.webp","images":["项目详情/楚鲜汇UI/详情1.webp"]},{"title":"长江大学校招","slug":"长江大学校招","category":"offline","year":"","cover":"项目详情/长江大学校招/大图1.webp","images":["项目详情/长江大学校招/详情1.webp"]},{"title":"天润农业","slug":"天润农业","category":"online","year":"","cover":"项目详情/天润农业/大图1.webp","images":["项目详情/天润农业/详情1.webp","项目详情/天润农业/详情2.webp"]},{"title":"活力28·官网","slug":"活力28·官网","category":"online","year":"","cover":"项目详情/活力28·官网/大图1.webp","images":["项目详情/活力28·官网/详情1.webp","项目详情/活力28·官网/详情2.webp","项目详情/活力28·官网/详情3.webp"]},{"title":"楚鲜汇","slug":"楚鲜汇","category":"offline","year":"","cover":"项目详情/楚鲜汇/大图1.webp","images":["项目详情/楚鲜汇/详情1.webp","项目详情/楚鲜汇/详情2.webp","项目详情/楚鲜汇/详情3.webp","项目详情/楚鲜汇/详情4.webp"]},{"title":"高新区食品产业园","slug":"高新区食品产业园","category":"offline","year":"","cover":"项目详情/高新区食品产业园/大图1.webp","images":["项目详情/高新区食品产业园/详情1.webp","项目详情/高新区食品产业园/详情2.webp","项目详情/高新区食品产业园/详情3.webp","项目详情/高新区食品产业园/详情4.webp","项目详情/高新区食品产业园/详情5.webp","项目详情/高新区食品产业园/详情6.webp","项目详情/高新区食品产业园/详情7.webp","项目详情/高新区食品产业园/详情8.webp","项目详情/高新区食品产业园/详情9.webp"]}]};
+SJ_DATA.projects.splice(0, 0, {
+  title: '铭庄主·抖音',
+  slug: '铭庄主·抖音',
+  category: 'online',
+  year: '2026',
+  cover: '项目详情/铭庄主·抖音/大图1.webp',
+  images: [
+    '项目详情/铭庄主·抖音/详情1.webp',
+    '项目详情/铭庄主·抖音/详情2.webp',
+    '项目详情/铭庄主·抖音/详情3.webp',
+    '项目详情/铭庄主·抖音/详情4.webp',
+    '项目详情/铭庄主·抖音/详情5.webp',
+    '项目详情/铭庄主·抖音/详情6.webp',
+    '项目详情/铭庄主·抖音/详情7.webp',
+    '项目详情/铭庄主·抖音/详情8.webp'
+  ]
+});
+SJ_DATA.projects.splice(2, 0, {
+  title: '楚鲜汇·小龙虾包装',
+  slug: '楚鲜汇·小龙虾包装',
+  category: 'offline',
+  year: '2026',
+  cover: '项目详情/楚鲜汇·小龙虾包装/大图1.webp',
+  images: [
+    '项目详情/楚鲜汇·小龙虾包装/详情1.webp',
+    '项目详情/楚鲜汇·小龙虾包装/详情2.webp'
+  ]
+});
 const app = document.querySelector('#app');
 const HOME_BANNERS = [
-  { src: '首页banner/首页轮播1.webp', title: 'LINKPLUS 2026', mobileSrc: 'assets/home-banner-1-mobile.webp' },
+  { src: '首页banner/首页轮播1.webp', title: 'LINKPLUS 2026', mobileSrc: 'assets/home-banner-1-mobile.webp', mobileWidth: 1600 },
   { src: '首页banner/首页轮播2.webp', title: '活力28品牌重塑 2017' },
   { src: '首页banner/首页轮播3.webp', title: '联投·增益楚菜产业园 2025' },
   { src: '首页banner/首页轮播4.webp', title: 'CHUYUN MEDIA 2026' },
-  { src: 'assets/home-banner-5.webp', title: '楚鲜汇·端午 2026' }
+  { src: 'assets/home-banner-5.webp', title: '铭庄主·抖音 2026', mobileSrc: 'assets/home-banner-5-mobile.webp', mobileWidth: 1200 }
 ];
 const PROJECT_THUMBS = {
+  '铭庄主·抖音': 'assets/project-thumbs/thumb-mingzhuangzhu-douyin.webp',
+  '楚鲜汇·小龙虾包装': 'assets/project-thumbs/thumb-chuxianhui-lobster-packaging.webp',
   '楚韵传媒': 'assets/project-thumbs/thumb-01-chuyun-media-cn.webp',
   'CHUYUN-MEDIA': 'assets/project-thumbs/thumb-02-chuyun-media.webp',
   '益膳': 'assets/project-thumbs/thumb-03-yishan.webp',
@@ -75,7 +105,7 @@ function renderHome() {
     <section class="hero-carousel" aria-label="Selected works">
       ${HOME_BANNERS.map((banner, index) => `
         <figure class="hero-slide ${index === state.slide ? 'is-active' : ''}" data-slide="${index}">
-          <img ${banner.mobileSrc ? `srcset="${banner.mobileSrc} 1600w, ${banner.src} 1920w" sizes="100vw"` : ''} ${index === state.slide ? `src="${banner.src}" fetchpriority="high" loading="eager"` : `data-src="${banner.src}" loading="lazy"`} alt="${banner.title}" decoding="async">
+          <img ${banner.mobileSrc ? `${index === state.slide ? 'srcset' : 'data-srcset'}="${banner.mobileSrc} ${banner.mobileWidth || 1200}w, ${banner.src} 1920w" sizes="100vw"` : ''} ${index === state.slide ? `src="${banner.src}" fetchpriority="high" loading="eager"` : `data-src="${banner.src}" loading="lazy"`} alt="${banner.title}" decoding="async">
         </figure>`).join('')}
     </section>
     <div class="hero-caption reveal">
@@ -271,6 +301,10 @@ function bindCarousel() {
   const interval = 6000;
   const ensureSlideImage = index => {
     const img = document.querySelector(`.hero-slide[data-slide="${index}"] img`);
+    if (img?.dataset.srcset) {
+      img.srcset = img.dataset.srcset;
+      delete img.dataset.srcset;
+    }
     if (img?.dataset.src && !img.src) {
       img.src = img.dataset.src;
       delete img.dataset.src;

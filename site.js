@@ -27,15 +27,32 @@ SJ_DATA.projects.splice(2, 0, {
     '项目详情/楚鲜汇·小龙虾包装/详情2.webp'
   ]
 });
+SJ_DATA.projects.splice(0, 0, {
+  title: '樊姬扇·大师作',
+  slug: '樊姬扇·大师作',
+  category: 'offline',
+  year: '2026',
+  cover: '项目详情/樊姬扇·大师作/大图1.webp',
+  images: [
+    '项目详情/樊姬扇·大师作/详情1.webp',
+    '项目详情/樊姬扇·大师作/详情2.webp',
+    '项目详情/樊姬扇·大师作/详情3.webp',
+    '项目详情/樊姬扇·大师作/详情4.webp',
+    '项目详情/樊姬扇·大师作/详情5.webp',
+    '项目详情/樊姬扇·大师作/详情6.webp',
+    '项目详情/樊姬扇·大师作/详情7.webp'
+  ]
+});
 const app = document.querySelector('#app');
 const HOME_BANNERS = [
   { src: '首页banner/首页轮播1.webp', title: 'LINKPLUS 2026', mobileSrc: 'assets/home-banner-1-mobile.webp', mobileWidth: 1600 },
-  { src: '首页banner/首页轮播2.webp', title: '活力28品牌重塑 2017' },
+  { src: '首页banner/首页轮播2.webp', title: '樊姬扇·大师作', mobileSrc: 'assets/home-banner-2-mobile.webp', mobileWidth: 1200 },
   { src: '首页banner/首页轮播3.webp', title: '联投·增益楚菜产业园 2025' },
   { src: '首页banner/首页轮播4.webp', title: 'CHUYUN MEDIA 2026' },
   { src: 'assets/home-banner-5.webp', title: '铭庄主·抖音 2026', mobileSrc: 'assets/home-banner-5-mobile.webp', mobileWidth: 1200 }
 ];
 const PROJECT_THUMBS = {
+  '樊姬扇·大师作': 'assets/project-thumbs/thumb-fanji-masterpiece.webp',
   '铭庄主·抖音': 'assets/project-thumbs/thumb-mingzhuangzhu-douyin.webp',
   '楚鲜汇·小龙虾包装': 'assets/project-thumbs/thumb-chuxianhui-lobster-packaging.webp',
   '楚韵传媒': 'assets/project-thumbs/thumb-01-chuyun-media-cn.webp',

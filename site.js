@@ -48,7 +48,7 @@ SJ_DATA.projects.splice(0, 0, {
   slug: '楚丫头-IP',
   category: 'offline',
   year: '2026',
-  cover: '项目详情/楚丫头-IP/大图1.webp',
+  cover: '项目详情/楚丫头-IP/大图1.png',
   images: [
     '项目详情/楚丫头-IP/详情1.webp'
   ]
@@ -62,7 +62,7 @@ const HOME_BANNERS = [
   { src: 'assets/home-banner-5.webp', title: '铭庄主·抖音 2026', mobileSrc: 'assets/home-banner-5-mobile.webp', mobileWidth: 1200 }
 ];
 const PROJECT_THUMBS = {
-  '楚丫头-IP': 'assets/project-thumbs/thumb-chuyatou-ip.webp',
+  '楚丫头-IP': 'assets/project-thumbs/thumb-chuyatou-ip.png',
   '樊姬扇·大师作': 'assets/project-thumbs/thumb-fanji-masterpiece.webp',
   '铭庄主·抖音': 'assets/project-thumbs/thumb-mingzhuangzhu-douyin.webp',
   '楚鲜汇·小龙虾包装': 'assets/project-thumbs/thumb-chuxianhui-lobster-packaging.webp',
@@ -770,7 +770,6 @@ bindMobileMenu();
 bindSearch();
 route();
 playIntroEntry();
-
 
 
 

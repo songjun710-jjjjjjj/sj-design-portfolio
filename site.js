@@ -53,9 +53,13 @@ SJ_DATA.projects.splice(0, 0, {
     '项目详情/楚丫头-IP/详情1.webp'
   ]
 });
+const capitalInnovationTitle = '“资聚荆楚 攀高向新”——2026年荆州市资本赋能产业创新发展大会';
+const jingjingBrandTitle = '今荆有味——荆州区区域公用品牌';
+const jingjieMusicTitle = '荆州荆街——2026中秋大夏甄选音乐节';
 SJ_DATA.projects.unshift(
   {
-    title: '“资聚荆楚 攀高向新”——2026年荆州市资本赋能产业创新发展大会',
+    title: capitalInnovationTitle,
+    listTitle: '资聚荆楚 攀高向新',
     slug: '资聚荆楚攀高向新',
     category: 'offline',
     year: '2026',
@@ -68,7 +72,8 @@ SJ_DATA.projects.unshift(
     ]
   },
   {
-    title: '今荆有味——荆州区区域公用品牌',
+    title: jingjingBrandTitle,
+    listTitle: '荆州区区域公用品牌',
     slug: '今荆有味',
     category: 'offline',
     year: '2026',
@@ -80,7 +85,8 @@ SJ_DATA.projects.unshift(
     ]
   },
   {
-    title: '荆州荆街——2026中秋大夏甄选音乐节',
+    title: jingjieMusicTitle,
+    listTitle: '2026中秋大夏甄选音乐节',
     slug: '荆州荆街',
     category: 'offline',
     year: '2026',
@@ -90,9 +96,9 @@ SJ_DATA.projects.unshift(
 );
 const app = document.querySelector('#app');
 const HOME_BANNERS = [
-  { src: 'assets/home-banner-capital-innovation.webp', title: '资聚荆楚 攀高向新', backdrop: '#0b0874' },
-  { src: 'assets/home-banner-jinjingyouwei.webp', title: '今荆有味', backdrop: '#00743d' },
-  { src: 'assets/home-banner-jingjie-music.webp', title: '荆州荆街', backdrop: '#091320' },
+  { src: 'assets/home-banner-capital-innovation.webp', title: capitalInnovationTitle, backdrop: '#0b0874' },
+  { src: 'assets/home-banner-jinjingyouwei.webp', title: jingjingBrandTitle, backdrop: '#00743d' },
+  { src: 'assets/home-banner-jingjie-music.webp', title: jingjieMusicTitle, backdrop: '#091320' },
   { src: 'assets/home-banner-fanji.webp', title: '樊姬扇·大师作', mobileSrc: 'assets/home-banner-2-mobile.webp', mobileWidth: 1200 },
   { src: '首页banner/首页轮播3.webp', title: '联投·增益楚菜产业园 2025' }
 ];
@@ -265,7 +271,7 @@ function projectCard(project) {
   return `
     <a class="project-card reveal" href="${projectHref(project)}" data-project-card data-return-hash="${projectsHref(state.filter, state.page)}">
       <div class="project-thumb"><img src="${thumb}" alt="${project.title}" loading="lazy" decoding="async"></div>
-      <strong class="project-title">${project.title}</strong>
+      <strong class="project-title">${project.listTitle || project.title}</strong>
     </a>`;
 }
 

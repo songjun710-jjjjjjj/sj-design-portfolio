@@ -133,7 +133,7 @@ figure{margin:0}
   .page-root{min-height:calc(100svh - 82px)}
   .hero-carousel{height:52svh;min-height:410px;max-height:500px;aspect-ratio:auto}
   .hero-slide img{object-fit:cover;object-position:center;background:#eef1f3}
-  .hero-caption{width:calc(100vw - 40px);height:112px;padding-top:26px;grid-template-columns:minmax(0,1fr) auto;gap:14px}
+  .hero-caption{width:calc(100vw - 40px);min-height:112px;height:auto;padding:26px 0 18px;grid-template-columns:minmax(0,1fr) auto;gap:14px}
   .caption-title{font-size:clamp(18px,5.6vw,23px);line-height:1.12}
   .carousel-controls{margin-top:0;align-self:start}
   .arrow-btn{width:48px;height:48px;font-size:28px}

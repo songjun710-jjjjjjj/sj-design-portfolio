@@ -43,15 +43,53 @@ SJ_DATA.projects.splice(0, 0, {
     '项目详情/樊姬扇·大师作/详情7.webp'
   ]
 });
+SJ_DATA.projects.unshift(
+  {
+    title: '“资聚荆楚 攀高向新”——2026年荆州市资本赋能产业创新发展大会',
+    slug: '资聚荆楚攀高向新',
+    category: 'offline',
+    year: '2026',
+    cover: '项目详情/资聚荆楚攀高向新/大图1.webp',
+    images: [
+      '项目详情/资聚荆楚攀高向新/详情1.webp',
+      '项目详情/资聚荆楚攀高向新/详情2.webp',
+      '项目详情/资聚荆楚攀高向新/详情3.webp',
+      '项目详情/资聚荆楚攀高向新/详情4.webp'
+    ]
+  },
+  {
+    title: '今荆有味——荆州区区域公用品牌',
+    slug: '今荆有味',
+    category: 'offline',
+    year: '2026',
+    cover: '项目详情/今荆有味/大图1.webp',
+    images: [
+      '项目详情/今荆有味/详情1.webp',
+      '项目详情/今荆有味/详情2.webp',
+      '项目详情/今荆有味/详情3.webp'
+    ]
+  },
+  {
+    title: '荆州荆街——2026中秋大夏甄选音乐节',
+    slug: '荆州荆街',
+    category: 'offline',
+    year: '2026',
+    cover: '项目详情/荆州荆街/大图1.webp',
+    images: ['项目详情/荆州荆街/详情1.webp']
+  }
+);
 const app = document.querySelector('#app');
 const HOME_BANNERS = [
-  { src: '首页banner/首页轮播1.webp', title: 'LINKPLUS 2026', mobileSrc: 'assets/home-banner-1-mobile.webp', mobileWidth: 1600 },
+  { src: 'assets/home-banner-capital-innovation.webp', title: '资聚荆楚 攀高向新', backdrop: '#0b0874' },
+  { src: 'assets/home-banner-jinjingyouwei.webp', title: '今荆有味', backdrop: '#00743d' },
+  { src: 'assets/home-banner-jingjie-music.webp', title: '荆州荆街', backdrop: '#091320' },
   { src: 'assets/home-banner-fanji.webp', title: '樊姬扇·大师作', mobileSrc: 'assets/home-banner-2-mobile.webp', mobileWidth: 1200 },
-  { src: '首页banner/首页轮播3.webp', title: '联投·增益楚菜产业园 2025' },
-  { src: '首页banner/首页轮播4.webp', title: 'CHUYUN MEDIA 2026' },
-  { src: 'assets/home-banner-5.webp', title: '铭庄主·抖音 2026', mobileSrc: 'assets/home-banner-5-mobile.webp', mobileWidth: 1200 }
+  { src: '首页banner/首页轮播3.webp', title: '联投·增益楚菜产业园 2025' }
 ];
 const PROJECT_THUMBS = {
+  '资聚荆楚攀高向新': 'assets/project-thumbs/thumb-capital-innovation.webp',
+  '今荆有味': 'assets/project-thumbs/thumb-jinjingyouwei.webp',
+  '荆州荆街': 'assets/project-thumbs/thumb-jingjie-music.webp',
   '樊姬扇·大师作': 'assets/project-thumbs/thumb-fanji-masterpiece.webp',
   '铭庄主·抖音': 'assets/project-thumbs/thumb-mingzhuangzhu-douyin.webp',
   '楚鲜汇·小龙虾包装': 'assets/project-thumbs/thumb-chuxianhui-lobster-packaging.webp',
@@ -121,7 +159,7 @@ function renderHome() {
   app.innerHTML = `
     <section class="hero-carousel" aria-label="Selected works">
       ${HOME_BANNERS.map((banner, index) => `
-        <figure class="hero-slide ${index === state.slide ? 'is-active' : ''}" data-slide="${index}">
+        <figure class="hero-slide ${banner.backdrop ? 'hero-slide-wide' : ''} ${index === state.slide ? 'is-active' : ''}" data-slide="${index}"${banner.backdrop ? ` style="--hero-backdrop:${banner.backdrop}"` : ''}>
           <img ${banner.mobileSrc ? `${index === state.slide ? 'srcset' : 'data-srcset'}="${banner.mobileSrc} ${banner.mobileWidth || 1200}w, ${banner.src} 1920w" sizes="100vw"` : ''} ${index === state.slide ? `src="${banner.src}" fetchpriority="high" loading="eager"` : `data-src="${banner.src}" loading="lazy"`} alt="${banner.title}" decoding="async">
         </figure>`).join('')}
     </section>

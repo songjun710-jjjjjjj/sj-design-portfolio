@@ -43,6 +43,16 @@ SJ_DATA.projects.splice(0, 0, {
     '项目详情/樊姬扇·大师作/详情7.webp'
   ]
 });
+SJ_DATA.projects.splice(0, 0, {
+  title: '楚丫头-IP',
+  slug: '楚丫头-IP',
+  category: 'offline',
+  year: '2026',
+  cover: '项目详情/楚丫头-IP/大图1.png',
+  images: [
+    '项目详情/楚丫头-IP/详情1.webp'
+  ]
+});
 SJ_DATA.projects.unshift(
   {
     title: '“资聚荆楚 攀高向新”——2026年荆州市资本赋能产业创新发展大会',
@@ -90,6 +100,7 @@ const PROJECT_THUMBS = {
   '资聚荆楚攀高向新': 'assets/project-thumbs/thumb-capital-innovation.webp',
   '今荆有味': 'assets/project-thumbs/thumb-jinjingyouwei.webp',
   '荆州荆街': 'assets/project-thumbs/thumb-jingjie-music.webp',
+  '楚丫头-IP': 'assets/project-thumbs/thumb-chuyatou-ip.png',
   '樊姬扇·大师作': 'assets/project-thumbs/thumb-fanji-masterpiece.webp',
   '铭庄主·抖音': 'assets/project-thumbs/thumb-mingzhuangzhu-douyin.webp',
   '楚鲜汇·小龙虾包装': 'assets/project-thumbs/thumb-chuxianhui-lobster-packaging.webp',
@@ -797,8 +808,6 @@ bindMobileMenu();
 bindSearch();
 route();
 playIntroEntry();
-
-
 
 
 
